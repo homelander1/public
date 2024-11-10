@@ -72,7 +72,6 @@
             </div>
             <img class="main_photo" src="/assets/img/about.png" alt="">
         </div>
-        <a href="logout.php">Log out</a>
     </div>
     <?php include './footer.php'; ?>
 

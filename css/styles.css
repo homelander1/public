@@ -130,11 +130,13 @@ header nav ul li a:hover {
     border-bottom: 3px solid #FBD784;
 }
 
-.log-reg:hover {
-    display: inline-block;
-    color: #FBD784;
-    border-radius: 50%;
+.log-reg {
+    color: #ffffff;
+}
 
+.log-reg:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(77%) sepia(73%) saturate(257%) hue-rotate(349deg) brightness(99%) contrast(99%);
 }
 
 .hero {
@@ -192,11 +194,11 @@ h1 {
 }
 
 .social-block ul li a img:hover {
-    filter: brightness(0) saturate(100%) hue-rotate(60deg) brightness(1.5);
+    filter: brightness(0) saturate(100%) invert(77%) sepia(73%) saturate(257%) hue-rotate(349deg) brightness(99%) contrast(99%);
 }
 
 .social-block ul li img:hover {
-    filter: brightness(0) saturate(100%) hue-rotate(60deg) brightness(1.5);
+    filter: brightness(0) saturate(100%) invert(77%) sepia(73%) saturate(257%) hue-rotate(349deg) brightness(99%) contrast(99%);
 }
 
 .followUs {
@@ -214,7 +216,7 @@ h1 {
 }
 
 .scrollDown img:hover {
-    filter: brightness(0) saturate(100%) hue-rotate(60deg) brightness(1.5);
+    filter: brightness(0) saturate(100%) invert(77%) sepia(73%) saturate(257%) hue-rotate(349deg) brightness(99%) contrast(99%);
 }
 
 /* Common modal styles for both Follow Us and Log In modals */
@@ -458,4 +460,22 @@ footer {
 
 .last_link {
     margin-bottom: 0px;
+}
+
+/* .account-btn {
+    display: flex;
+    align-items: center;
+}
+
+.account-btn:hover {
+    color: #FBD784;
+    border-radius: 50%;
+}
+
+.account-btn img:hover {
+    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+} */
+
+.account-btn:hover {
+    filter: brightness(0) saturate(100%) invert(77%) sepia(73%) saturate(257%) hue-rotate(349deg) brightness(99%) contrast(99%);
 }

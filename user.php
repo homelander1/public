@@ -53,6 +53,7 @@ $last_name = $_SESSION['last_name'] ?? '';
         <a href="logout.php">Log out</a>
     </div>
 
+    <script src="./js.js"></script>
 
 </body>
 

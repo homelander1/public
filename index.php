@@ -118,6 +118,8 @@
     </div>
     <?php include './index-articles.php'; ?>
     <?php include './footer.php'; ?>
+
+
     <script src="./js.js"></script>
 
 </body>
