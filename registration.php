@@ -1,4 +1,5 @@
 <?php
+
 function registrationForm($data)
 {
     $dbserver = "localhost";
@@ -82,6 +83,7 @@ function loginUser($data)
     session_start();
     $_SESSION['first_name'] = $first_name;
     $_SESSION['last_name'] = $last_name;
+    $_SESSION['logged_in'] = true;  // Add this line to track login status
 
     // Redirect to user.php
     header("Location: user.php");

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,6 +67,8 @@
     }
 
     ?>
+
+
 
     <!-- Sign up modal -->
     <div id="myModalSignup" class="modalLog" style="display:none;">

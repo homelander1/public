@@ -6,6 +6,12 @@
             <li><a href="equipment.php">Equipment</a></li>
             <li><a href="about.php">About</a></li>
         </ul>
-        <button type="button" id="openLoginModal" class="log-reg">Log in</button>
+        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+            <!-- Display Account button if logged in -->
+            <a href="user.php" class="account-btn">Account</a>
+        <?php else: ?>
+            <!-- Display Log in button if not logged in -->
+            <button type="button" id="openLoginModal" class="log-reg">Log in</button>
+        <?php endif; ?>
     </nav>
 </header>

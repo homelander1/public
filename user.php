@@ -1,14 +1,12 @@
 <?php
 session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION['first_name']) || !isset($_SESSION['last_name'])) {
-    header("Location: index.php"); // Redirect to the login page if not logged in
+if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+    header("Location: index.php");
     exit();
 }
 
-$first_name = $_SESSION['first_name'];
-$last_name = $_SESSION['last_name'];
+$first_name = $_SESSION['first_name'] ?? '';
+$last_name = $_SESSION['last_name'] ?? '';
 ?>
 
 <!DOCTYPE html>
