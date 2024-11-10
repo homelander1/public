@@ -60,7 +60,7 @@ function loginUser($data)
     $password = $data["password"] ?? '';
 
     // Prepare the SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("SELECT first_name, last_name, password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT user_id, first_name, last_name, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -71,7 +71,7 @@ function loginUser($data)
     }
 
     // Bind the result
-    $stmt->bind_result($first_name, $last_name, $hashed_password);
+    $stmt->bind_result($user_id, $first_name, $last_name, $hashed_password);
     $stmt->fetch();
 
     // Verify the password
@@ -83,6 +83,7 @@ function loginUser($data)
     session_start();
     $_SESSION['first_name'] = $first_name;
     $_SESSION['last_name'] = $last_name;
+    $_SESSION['user_id'] = $user_id;
     $_SESSION['logged_in'] = true;  // Add this line to track login status
 
     // Redirect to user.php

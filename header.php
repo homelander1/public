@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <a class="logo" href="#">MNTN</a>
+        <a class="logo" href="index.php">MNTN</a>
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="equipment.php">Equipment</a></li>

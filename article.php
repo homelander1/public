@@ -1,9 +1,9 @@
 <?php
 include 'db.php';
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-$stmt = $pdo->prepare("SELECT title, content, author, publication_date, image_url FROM articles WHERE id = :id");
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$id = isset($_GET['article_id']) ? (int)$_GET['article_id'] : 0;
+$stmt = $pdo->prepare("SELECT title, content, author, publication_date, image_url FROM articles WHERE article_id = :article_id");
+$stmt->bindParam(':article_id', $id, PDO::PARAM_INT);
 $stmt->execute();
 $article = $stmt->fetch(PDO::FETCH_ASSOC);
 

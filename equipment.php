@@ -11,7 +11,7 @@ $totalArticles = $pdo->query("SELECT COUNT(*) FROM articles")->fetchColumn();
 $totalPages = ceil($totalArticles / $limit);
 
 // Fetch articles for the current page, including the image URL
-$stmt = $pdo->prepare("SELECT id, title, content, author, publication_date, image_url FROM articles ORDER BY publication_date DESC LIMIT :limit OFFSET :offset");
+$stmt = $pdo->prepare("SELECT article_id, title, content, author, publication_date, image_url FROM articles ORDER BY publication_date DESC LIMIT :limit OFFSET :offset");
 $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
 $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
@@ -38,7 +38,7 @@ $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="container my-4">
         <h3 class="mb-4">Equipment details</h3>
-        <div class="row">
+        <div class="row article-box">
             <?php foreach ($articles as $article): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card card-fixed shadow-sm d-flex flex-row">
@@ -51,7 +51,7 @@ $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <h5 class="card-title"><?= htmlspecialchars($article['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars(substr($article['content'], 0, 100)) ?>...</p>
                             <p class="card-text"><small class="text-muted">By <?= htmlspecialchars($article['author']) ?> on <?= htmlspecialchars($article['publication_date']) ?></small></p>
-                            <a href="article.php?id=<?= $article['id'] ?>" class="btn btn-primary">Read More</a>
+                            <a href="article.php?article_id=<?= $article['article_id'] ?>" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,9 @@ $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <nav aria-label="Page navigation" class="mt-4">
             <ul class="pagination justify-content-center">
                 <?php if ($page > 1): ?>
-                    <li class="page-item"><a class="page-link" href="?page=<?= $page - 1 ?>">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="?page=<?= $page - 1 ?>">
+                            < </a>
+                    </li>
                 <?php endif; ?>
 
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
@@ -72,7 +74,7 @@ $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endfor; ?>
 
                 <?php if ($page < $totalPages): ?>
-                    <li class="page-item"><a class="page-link" href="?page=<?= $page + 1 ?>">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page=<?= $page + 1 ?>"> > </a></li>
                 <?php endif; ?>
             </ul>
         </nav>
